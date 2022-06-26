@@ -19,10 +19,12 @@ void InsDir(Node *aux, int x);
 void insere_na_arv(Node **no, int num);
 void tem_repetido(Node *raiz, int num, int *aux);
 void coloca_nums_na_arv(Node **raiz);
+int busca(Node *no, int num);
 /////////////////////////////////////////////////
 
 int main ()
 {
+    int num;
 	Node *raiz, *raiz_2;
 	
 	raiz = cria_no(5);
@@ -42,6 +44,13 @@ int main ()
 	printf("\nArvore pre-ordem: ");
 	percorre_arv(raiz_2);
 	
+	printf("\nInsira o numero para buscá-lo na árvore: ");
+	    scanf("%d", &num);
+	if (busca(raiz_2, num))
+	    printf("\nNumero encontrado");
+	else
+	    printf("\nNumero nao encontrado");
+    
 	return 0;
 }
 
@@ -135,4 +144,23 @@ void coloca_nums_na_arv(Node **raiz)
 		i++;
 	}
 }
+
+int busca(Node *no, int num)
+{
+    int x;
+    
+    if (no == NULL)
+        return 0;
+    
+    if (num == no->info)
+        return 1;
+    else if (num < no->info)
+        x = busca(no->esq, num);
+    else if (num > no->info)
+        x = busca(no->dir, num);
+    
+    return x;
+}
+
 /////////////////////////////////////////////////
+
