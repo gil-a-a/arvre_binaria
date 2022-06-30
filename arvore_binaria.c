@@ -44,7 +44,7 @@ int main ()
 	printf("\nArvore pre-ordem: ");
 	percorre_arv(raiz_2);
 	
-	printf("\nInsira o numero para buscá-lo na árvore: ");
+	printf("\nInsira o numero para busca-lo na arvore: ");
 	    scanf("%d", &num);
 	if (busca(raiz_2, num))
 	    printf("\nNumero encontrado");
@@ -163,4 +163,3 @@ int busca(Node *no, int num)
 }
 
 /////////////////////////////////////////////////
-
